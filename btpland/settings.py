@@ -130,12 +130,6 @@ STATICFILES_DIRS = (
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
-)
 
 LOGIN_REDIRECT_URL ='/administrator'
 LOGOUT_REDIRECT_URL ='/'
