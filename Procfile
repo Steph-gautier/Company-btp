@@ -1,1 +1,1 @@
-web: gunicorn btpland.wsgi --log-file -
+web: gunicorn btp-land.wsgi --log-file -
