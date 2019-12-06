@@ -1,0 +1,238 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ========== Meta Tags ========== -->
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- ========== Title ========== -->
+    <title> BTP-Land Forum</title>
+    <!-- ========== Favicon Ico ========== -->
+    <!--<link rel="icon" href="fav.ico">-->
+    <!-- ========== STYLESHEETS ========== -->
+    <!-- Bootstrap CSS -->
+    <link href="{% static "assets/css/bootstrap.min.css" %}" rel="stylesheet">
+    <!-- Fonts Icon CSS -->
+    <link href="{% static "assets/css/font-awesome.min.css" %}" rel="stylesheet">
+    <link href="{% static "assets/css/et-line.css" %}" rel="stylesheet">
+    <link href="{% static "assets/css/ionicons.min.css" %}" rel="stylesheet">
+    <!-- Carousel CSS -->
+    <link href="{% static "assets/css/owl.carousel.min.css" %}" rel="stylesheet">
+    <link href="{% static "assets/css/owl.theme.default.min.css" %}" rel="stylesheet">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="{% static "assets/css/animate.min.css" %}">
+    <!-- Custom styles for this template -->
+    <link href="{% static "assets/css/main.css" %}" rel="stylesheet">
+</head>
+<body>
+<div class="loader">
+    <div class="loader-outter"></div>
+    <div class="loader-inner"></div>
+</div>
+
+<!--header start here -->
+<header class="header navbar fixed-top navbar-expand-md">
+    <div class="container">
+        <a class="navbar-brand logo" href="..">
+            <div style="display: inline-flex"><div class="logo-text">BTP-Land  </div><i class="ion-hammer" style="color:#4e78c5;font-size: 30px"></i></div>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headernav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="lnr lnr-text-align-right"></span>
+        </button>
+        <div class="collapse navbar-collapse flex-sm-row-reverse" id="headernav">
+            <ul class=" nav navbar-nav menu">
+                <li class="nav-item">
+                    <a class="nav-link active" href="..">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="/blog">Blog</a>
+                </li>
+                <li class="nav-item">
+					<a class="nav-link " href="#"><u>Sign up</u></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+<!--header end here-->
+
+<!--page title section-->
+<section class="inner_cover parallax-window" data-parallax="scroll" data-image-src="{% static "assets/img/bg/bg-img.png" %}">
+    <div class="overlay_dark"></div>
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12">
+                <div class="inner_cover_content">
+                    <h3>
+                        Forums
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="breadcrumbs">
+            <ul>
+                <li><a href="..">Home</a>   |  </li>
+                <li><span>Forums</span></li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--page title section end-->
+
+
+<!--events section -->
+<section class="pt10 pb100">
+    <div class="container">
+            <div  style="background-color: transparent
+            ;border:0;cursor: pointer; font-size:39px;color:#4e78c5;position: relative;top: 4.3rem; left: 61rem;">
+            <span toggle="#liked" id="like"><i id="heart" class="ion-ios-heart-outline"></i></span><br/><h6  style="color: white;margin-left: 4px;"><b class="count">335</b></h6></div>
+            
+        <div class="row justify-content-center">
+            <!--blog section start -->
+                    <img class="media-it" src="/media/{{model_infos.image}}" alt="Model" height="485em" width="90%">
+                    
+            
+			<div class="col-12 col-md-8">
+                <div class="blog_card">
+                    <div class="blog_box_data">
+                        <p><h2><b>{{model_infos.name}}</b></h2></p>
+                            
+                        <div class="blog_meta">
+                            <span><a href="#">By Kamdem Ernest</a></span>  | <span><a href="#"> Models & Plans   </a></span>|  <span><a href="#">47 Comments</a></span>
+                        </div>
+                        <h5>
+                            Details about this model or plan
+                        </h5>
+                        <p class="blog_word">
+                            {{model_infos.description}}
+                        </p>
+                        <a href="#" class="readmore_btn">Read More</a>
+                    </div>
+					<span>Comments:</span>
+					<div class="messages_display">
+						
+                        <!---COMMENT MODEL-->
+                        {% for message in posted_messages %}
+						<div class="avatar">
+							<div>
+								<img class="avatar-img" src="{% static "assets/img/user.png" %}">
+								<b style="position: relative;left: -2.5rem;top:2rem;">User-335</b>
+							</div>
+							<div class="msg">
+								<p> {{ message.message}}</p>
+							</div>
+                        </div>
+                        {% endfor %}
+						
+					</div>
+                </div>
+
+            </div>
+            <!--blog section end-->
+
+            <!--sidebar section -->
+            <div class="col-12 col-md-4 shift">
+                <div class="sidebar">
+                    <div class="widget widget_categories">
+                        <h4 class="widget-title">
+                            Project requested 205 times
+                        </h4>
+                        <ul>
+                            <li><a href="#">March 2017</a></li>
+                            <li><a href="#">April 2017</a></li>
+                            <li><a href="#">May 2017</a></li>
+                            <li><a href="#">June 2017</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--sidebar section end -->
+
+        </div>
+		<div>
+			<div><h4>LEAVE US YOUR COMMENTS AND APPRECIATIONS</h4></div>
+			<div><h4>Post a reaction:</h4></div>
+			<form method="POST">
+                    {% csrf_token %}
+				<div class="form-group">
+					{{ form.as_p}}
+				</div>
+				<button class="btn btn-primary-outline btn-rounded" style="margin-left:33rem;">Post a message</button>
+			</form>
+		</div>
+    </div>
+</section>
+<!--event section end -->
+
+
+
+<!--get tickets section -->
+<section class="bg-img pt100 pb100" style='background-image: url("{% static "assets/img/bg/tickets.png" %}");'>
+    <div class="container">
+        <div class="section_title mb30">
+            <h3 class="title color-light">
+                Check our realisations
+            </h3>
+        </div>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-9 text-md-left text-center color-light">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus massa nec gravida tempus. Integer iaculis in aazzzCurabitur a pulvinar nunc. Maecenas laoreet finibus lectus, at volutpat ligula euismod.
+            </div>
+            <div class="col-md-3 text-md-right text-center">
+                <a href="/blog" class="btn btn-primary btn-rounded mt30">Check models</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--get tickets section end-->
+
+<!--footer start -->
+<div class="copyright_footer">
+    <h4 style="color:white;text-align: center">Subscribe here by giving us your email address:</h4>
+        <hr class="bluebar"/>
+        <div class="newsletter">
+            <input type="text" class="newsletter-field" placeholder="Your Email Address"/>
+            <button class="subscribe" type="submit">SUBSCRIBE</button>
+        </div>
+		<h6 style="color:#B1B1B1;text-align: right;padding-top:2em">Powered by Wardrobe Electronics</h6>
+</div>
+<!--footer end -->
+
+<!-- jquery -->
+<script src="{% static "assets/js/jquery.min.js" %}"></script>
+<!-- bootstrap -->
+<script src="{% static "assets/js/popper.js" %}"></script>
+<script src="{% static "assets/js/bootstrap.min.js" %}"></script>
+<script src="{% static "assets/js/waypoints.min.js" %}"></script>
+<!--slick carousel -->
+<script src="{% static "assets/js/owl.carousel.min.js" %}"></script>
+<!--parallax -->
+<script src="{% static "assets/js/parallax.min.js" %}"></script>
+<!--Counter up -->
+<script src="{% static "assets/js/jquery.counterup.min.js" %}"></script>
+<!--Counter down -->
+<script src="{% static "assets/js/jquery.countdown.min.js" %}"></script>
+<!-- WOW JS -->
+<script src="{% static "assets/js/wow.min.js" %}"></script>
+<!-- Custom js -->
+<script src="{% static "assets/js/main.js" %}"></script>
+<script>
+    var like = false;
+    var number_of_like = 335;
+$('#like').click(function(){
+        like = !like;
+        $('#heart').toggleClass("ion-ios-heart-outline ion-ios-heart");
+        if(like){
+            number_of_like = number_of_like + 1;
+            $(".count").replaceWith('<b class="count">' + number_of_like + '</b>');
+        }
+        else{
+            number_of_like = number_of_like - 1;
+            $(".count").replaceWith('<b class="count">' + number_of_like + '</b>');
+        }
+});
+</script>
+</body>
+</html>

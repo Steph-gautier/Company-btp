@@ -1,0 +1,180 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ========== Meta Tags ========== -->
+    <meta charset="UTF-8">
+    <meta name="description" content="constructions buildings roads">
+    <meta name="keywords" content="contructions , advisement in construction , models of building, House estimation">
+    <meta name="WE" content="BTP-Land">
+    <!-- ========== Title ========== -->
+    <title> BTP-Land admin</title>
+    <!-- ========== Favicon Ico ========== -->
+    <!--<link rel="icon" href="fav.ico">-->
+    <!-- ========== STYLESHEETS ========== -->
+    <!-- Bootstrap CSS -->
+    <link href="{% static "assets/css/bootstrap.min.css" %}" rel="stylesheet">
+    <!-- Fonts Icon CSS -->
+    <link href="{% static "assets/css/font-awesome.min.css" %}" rel="stylesheet">
+    <link href="{% static "assets/css/et-line.css" %}" rel="stylesheet">
+    <link href="{% static "assets/css/ionicons.min.css" %}" rel="stylesheet">
+    <!-- Carousel CSS -->
+    <link href="{% static "assets/css/owl.carousel.min.css" %}" rel="stylesheet">
+    <link href="{% static "assets/css/owl.theme.default.min.css" %}" rel="stylesheet">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="{% static "assets/css/animate.min.css" %}">
+    <!-- Custom styles for this template -->
+    <link href="{% static "assets/css/main.css" %}" rel="stylesheet">
+</head>
+<body>
+<div class="loader">
+    <div class="loader-outter"></div>
+    <div class="loader-inner"></div>
+</div>
+
+<!--header start here -->
+<header class="header navbar fixed-top navbar-expand-md">
+    <div class="container">
+        <a class="navbar-brand logo" href="#">
+            <div style="display: inline-flex"><div class="logo-text">BTP-Land  </div><i class="ion-hammer" style="color:#4e78c5;font-size: 30px"></i></div>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headernav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="lnr lnr-text-align-right"></span>
+        </button>
+        <div class="collapse navbar-collapse flex-sm-row-reverse" id="headernav">
+            <ul class=" nav navbar-nav menu">
+                <li class="nav-item">
+                    <a class="nav-link active" href="..">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="{% url 'logout' %}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    3
+</header>
+<!--header end here-->
+
+<!--page title section-->
+<section class="inner_cover parallax-window" data-parallax="scroll" data-image-src="{% static "assets/img/bg/bg-img.png" %}">
+    <div class="overlay_dark"></div>
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12">
+                <div class="inner_cover_content">
+                    <p><h3>
+                       Admin-panel
+					</h3></p>
+					<h4 style="color:white">Welcome {{ user.username}}!</h4>
+					
+                </div>
+            </div>
+        </div>
+
+        <div class="breadcrumbs">
+            <ul>
+                <li><a href="..">Home</a>  |   </li>
+                <li><span>Admin</span></li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--page title section end-->
+
+
+<!--events section -->
+<section class="pt100 pb100">
+    <div class="container">
+
+        <div class="event_box">
+            <div class="event_info">
+                <div class="event_title">
+                    Form of a model
+                </div>
+            </div>
+            <div class="event_word">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 col-12 ">
+						<div class="speakers">
+                    			<strong>Admin?</strong>
+                    			<span>That is the place for uploading any video or image on your website</span>
+                		</div>
+                        <p>You must fill the form below by taking as reference the default values inside each field, otherwise don't be surprised if after something is not working properly on your website.
+						You can only here upload some models.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<div style="border: 2px solid #4e78c5;border-radius: 14px">
+			<div class="col-md-7 col-12" style="margin-left: 10rem;margin-top: 4rem;">
+              <form method="POST" enctype="multipart/form-data">  <br/>
+                {% csrf_token %}
+				<div class="contact_form">
+                    {{ form.as_p }}
+                    <div class="form-group text-right">
+                        <button class="btn btn-rounded btn-primary">Put on the website</button>
+                    </div>
+                </div>
+			  </form>	  
+            </div>
+		</div>
+    </div>
+</section>
+<!--event section end -->
+
+
+
+<!--get tickets section -->
+<section class="bg-img pt100 pb100" style='background-image: url("{% static "assets/img/bg/tickets.png" %}");'>
+    <div class="container">
+        <div class="section_title mb30">
+            <h3 class="title color-light">
+                GEt your tikets
+            </h3>
+        </div>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-9 text-md-left text-center color-light">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus massa nec gravida tempus. Integer iaculis in aazzzCurabitur a pulvinar nunc. Maecenas laoreet finibus lectus, at volutpat ligula euismod.
+            </div>
+            <div class="col-md-3 text-md-right text-center">
+                <a href="/blog" class="btn btn-primary btn-rounded mt30">buy now</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--get tickets section end-->
+
+<!--footer start -->
+
+<div class="copyright_footer">
+    <h4 style="color:white;text-align: center">Subscribe here by giving us your email address:</h4>
+        <hr class="bluebar"/>
+        <div class="newsletter">
+            <input type="text" class="newsletter-field" placeholder="Your Email Address"/>
+            <button class="subscribe" type="submit">SUBSCRIBE</button>
+        </div>
+		<h6 style="color:#B1B1B1;text-align: right;padding-top:2em">Powered by Wardrobe Electronics</h6>
+</div>
+<!--footer end -->
+
+<!-- jquery -->
+<script src="{% static "assets/js/jquery.min.js" %}"></script>
+<!-- bootstrap -->
+<script src="{% static "assets/js/popper.js" %}"></script>
+<script src="{% static "assets/js/bootstrap.min.js" %}"></script>
+<script src="{% static "assets/js/waypoints.min.js" %}"></script>
+<!--slick carousel -->
+<script src="{% static "assets/js/owl.carousel.min.js" %}"></script>
+<!--parallax -->
+<script src="{% static "assets/js/parallax.min.js" %}"></script>
+<!--Counter up -->
+<script src="{% static "assets/js/jquery.counterup.min.js" %}"></script>
+<!--Counter down -->
+<script src="{% static "assets/js/jquery.countdown.min.js" %}"></script>
+<!-- WOW JS -->
+<script src="{% static "assets/js/wow.min.js" %}"></script>
+<!-- Custom js -->
+<script src="{% static "assets/js/main.js" %}"></script>
+</body>
+</html>
