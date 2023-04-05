@@ -70,4 +70,4 @@ urllib3==1.25.2
 Werkzeug==0.16.0
 whitenoise==3.3.1
 wrapt==1.10.11
-zope.interface==4.6.0
+
